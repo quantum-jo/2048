@@ -1,6 +1,34 @@
 let grid;
 let score = 0;
 
+function isGameWon() {
+  for(let i = 0; i < 4; i++) {
+    for(let j = 0; j < 4; j++) {
+      if(grid[i][j] == 0) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function isGameOver() {
+  for(let i = 0; i < 4; i++) {
+    for(let j = 0; j < 4; j++) {
+      if(grid[i][j] == 0) {
+        return false;
+      }
+      if(j != 3 && grid[i][j] === grid[i][j+1]) {
+        return false;
+      }
+      if(i != 3 && grid[i][j] === grid[i+1][j]) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 function blankGrid() {
   return [
     [0, 0, 0, 0],
@@ -15,6 +43,7 @@ function setup() {
   grid = blankGrid();
   addNumber();
   addNumber();
+  updateCanvas();
 }
 
 function compare(a, b) {
@@ -98,6 +127,17 @@ function keyPressed() {
     if(changed) {
       addNumber();
     }
+    updateCanvas();
+
+    let gameover = isGameOver();
+    if(gameover) {
+      console.log('gameover');
+    }
+
+    let gamewon = isGameWon();
+    if(gamewon) {
+      console.log('gamewon');
+    }
   }
 }
 
@@ -122,6 +162,7 @@ function combine(row) {
       let b = row[i - 1];
       if(a == b) {
         row[i] = a + b;
+        score += row[i];
         row[i - 1] = 0;
       }
   }
@@ -148,9 +189,10 @@ function addNumber() {
   }
 }
 
-function draw() {
+function updateCanvas() {
   background(255);
   drawGrid();
+  select('#score').html(score);
 }
 
 function drawGrid() {
@@ -159,14 +201,23 @@ function drawGrid() {
     for(let j = 0; j < 4; j++) {
       noFill();
       strokeWeight(2);
-      stroke(0);
-      rect(i*w, j*w, w, w);
       let val = grid[i][j];
+      let s = val.toString();
+      stroke(0);
+
+
+      if(val != 0) {
+      fill(sizesColors[s].color);
+    } else {
+      noFill();
+    }
+
+      rect(i*w, j*w, w, w, 30);
       if(grid[i][j] != 0) {
         textAlign(CENTER, CENTER);
-        textSize(64);
-        fill(0);
         noStroke();
+        fill(0);
+        textSize(sizesColors[s].size);
         text(val, i*w + w/2, j*w + w/2);
       }
     }
