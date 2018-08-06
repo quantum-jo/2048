@@ -131,13 +131,13 @@ function keyPressed() {
 
     let gameover = isGameOver();
     if(gameover) {
-      console.log('gameover');
+      alert('Game Over');
     }
 
-    let gamewon = isGameWon();
-    if(gamewon) {
-      console.log('gamewon');
-    }
+    // let gamewon = isGameWon();
+    // if(gamewon) {
+    //   alert('Game Won');
+    // }
   }
 }
 
@@ -185,7 +185,7 @@ function addNumber() {
   if(options.length > 0) {
     let spot = random(options);
     let r = random(1);
-    grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
+    grid[spot.x][spot.y] = r > 0.2 ? 2 : 4;
   }
 }
 
