@@ -4,9 +4,8 @@
 
 ## Languages
 
->HTML, CSS
->JavaScript
+>HTML, CSS, JavaScript
 
 ## Framework
 
-> processing(I3) using p5.js
+> processing(I<sup>3</sup>) using p5.js
