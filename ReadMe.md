@@ -8,4 +8,4 @@
 
 ## Framework
 
-> processing(I<sup>3</sup>) using p5.js
+> Processing (I<sup>3</sup>) using p5.js
