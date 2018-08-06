@@ -1,4 +1,4 @@
-#2048 Game
+# 2048 Game
 
 2048 game written in JavaScript
 
@@ -10,4 +10,3 @@
 ## Framework
 
 > processing(I3) using p5.js
- 
