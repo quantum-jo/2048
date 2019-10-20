@@ -1,7 +1,6 @@
 # 2048 Game
 
-Complete 2048 game written in JavaScript
-Score system
+ 2048 game written in JavaScript
 
 ## Languages
 
