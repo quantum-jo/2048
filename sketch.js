@@ -2,8 +2,8 @@ let grid;
 let score = 0;
 
 function isGameWon() {
-  for(let i = 0; i < 4; i++) {
-    for(let j = 0; j < 4; j++) {
+  for(let i = 0; i < 5; i++) {
+    for(let j = 0; j < 5; j++) {
       if(grid[i][j] == 0) {
         return false;
       }
